@@ -18,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/challenge/start', 'App\Http\Controllers\ChallengeController@Start');
+
+Route::get('/users', 'App\Http\Controllers\UserController@index');
+Route::get('/posts/top', 'App\Http\Controllers\PostController@top');
+Route::get('/posts/{id}', 'App\Http\Controllers\PostController@show');
