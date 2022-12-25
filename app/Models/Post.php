@@ -15,7 +15,7 @@ class Post extends Model
 
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'user_id', 'id');
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
 }

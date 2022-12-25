@@ -20,3 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/challenge/start', 'App\Http\Controllers\ChallengeController@Start');
+
+Route::get('/users', 'App\Http\Controllers\UserController@index');
+Route::get('/posts/top', 'App\Http\Controllers\PostController@top');
+Route::get('/posts/{id}', 'App\Http\Controllers\PostController@show');
