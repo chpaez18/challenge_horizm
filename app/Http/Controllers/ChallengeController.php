@@ -46,9 +46,14 @@ class ChallengeController extends ApiController
             $posts = $this->jsonPlaceHolderService->getPosts();
         //-------------------------------------------------------------------------------------------------------------------
 
+        // We define a new structure prepared to know the final rating according to the given criteria.
+        //-------------------------------------------------------------------------------------------------------------------
+            $postsFormated = $this->jsonPlaceHolderService->defineWordCount($posts);
+        //-------------------------------------------------------------------------------------------------------------------
+
         // We save the information of the posts in the local database.
         //-------------------------------------------------------------------------------------------------------------------
-            $this->postService->storePost($posts);
+            $this->postService->storePost($postsFormated);
         //-------------------------------------------------------------------------------------------------------------------
 
         // We store the information of the users who wrote the posts.
@@ -57,6 +62,6 @@ class ChallengeController extends ApiController
             $this->userService->storeUser($usersId);
         //-------------------------------------------------------------------------------------------------------------------
         
-        return $this->successResponse('Registros guardados con exito.', 200);
+        return $this->successResponse('Records successfully saved.', 200);
     }
 }
